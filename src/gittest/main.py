@@ -12,6 +12,10 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
+@app.get("/books")
+def get_all_books():
+    return BOOKS
+
 @app.get("/books/{book_id}")
 def get_book_by_id(book_id: int):
     for book in BOOKS:
