@@ -21,11 +21,11 @@ def get_all_books():
 @app.get("/books/{book_id}")
 def get_book_by_id(book_id: int):
     for book in BOOKS:
-        if book["id"] == book_id:
+        if book.id == book_id:
             return book
     return {"error": "Book not found"}
 
 @app.post("/books")
 def create_book(book: Book):
-    BOOKS.append(book.dict())
+    BOOKS.append(book)
     return book
